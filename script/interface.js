@@ -15,23 +15,47 @@ function handleClick(event){
   let square = event.target;
   let position = square.id;
 
-  handleMove(position);
-  updateSquares();
+
+  if(handleMove(position)){
+
+    setTimeout(()=>{
+
+      alert("Parabéns você venceu!");
+    }, 10)
+
+  };
+  updateSquares(position);
 
 }
 
-function updateSquares(){
-
-  let square = document.querySelectorAll('.square');
-
-  square.forEach((square)=>{
-    let position = square.id;
-    let symbol = board[position];
-
-    if(symbol != ''){
+function updateSquares(position) {
+  let square = document.getElementById(position.toString());
+      let symbol = board[position];
       square.innerHTML = `<div class='${symbol}'></div>`;
-    }
+}
 
-  })
 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((square) => {
+    square.addEventListener('click', handleClick);
+  });
+
+
+  let resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', resetGame);
+});
+
+function resetGame() {
+  board = ['', '', '', '', '', '', '', '', ''];
+  playerTime = 0;
+  gameOver = false;
+
+  let squares = document.querySelectorAll('.square');
+  squares.forEach((square) => {
+    square.innerHTML = '';
+  });
 }
