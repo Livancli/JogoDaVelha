@@ -1,5 +1,7 @@
 # Jogo da Velha (Noughts and Crosses)
 
+![Jogo da velha](./icon/mrs-claus_9006283.png)
+
 O Jogo da Velha é uma implementação simples do clássico jogo para dois jogadores, também conhecido como "Noughts and Crosses". O projeto utiliza HTML5, CSS3 e JavaScript para criar uma interface interativa para jogar o Jogo da Velha.
 
 ## Como Jogar
